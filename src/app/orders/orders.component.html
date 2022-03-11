@@ -1,0 +1,89 @@
+<p>orders works!</p>
+<nav class="navbar" style="background-color: #46cc8d;">
+    <div class="container-fluid">
+     <h1>Orders</h1>
+      <div class="d-flex">
+        <button type="button" (click)="addOrder()" class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#exampleModal">Add Order</button>
+      </div>
+    </div>
+  </nav>
+<table class="table table-bordered table-striped table-hover">
+   <thead>
+    <tr >
+       <th scope="col"> OrderNo</th>
+       <th scope="col"> OrderDueDate</th>
+       <th scope="col"> CustomerBuyerName</th>
+       <th scope="col"> CustomerAddress</th>
+       <th scope="col"> CustomerPhone</th>
+    </tr>
+  </thead>
+ <tbody>
+  <tr *ngFor="let data of orderAll">
+     <td>{{data.orderNo}}</td>
+     <td>{{data.orderDueDate}}</td>
+     <td>{{data.CustomerBuyerName}}</td>
+     <td>{{data.CustomerAddress}}</td>
+     <td>{{data.CustomerPhone}}</td>
+     
+     <td>
+       <button (click)="editOrder(data)" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</button> &nbsp;
+       <button (click)="deleteOrder(data)" class="btn btn-outline-danger">Delete</button>
+
+     </td>
+  </tr>  
+  <tr>
+    <td><strong>Total Orders :</strong></td>
+    <td>{{orderAll.length}}</td>
+  </tr>   
+ </tbody>
+</table>
+
+<!--Add Details form Button-->
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label for="exampleInputStudentId" class="form-label">OrderNo</label>
+                  <input type="text"  formControlName="orderNo" class="form-control" id="exampleInputorderNo" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputFisrtName" class="form-label">OrderDueDate</label>
+                    <input type="text" formControlName="orderDueDate" class="form-control" id="exampleInputorderDueDate" aria-describedby="emailHelp">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleInputLastName" class="form-label">CustomerBuyerName</label>
+                    <input type="text" formControlName="CustomerBuyerName" class="form-control" id="exampleInputCustomerBuyerName" aria-describedby="emailHelp">
+                   </div>
+
+                  <div class="mb-3">
+                    <label for="exampleInputStudentEmail" class="form-label">CustomerAddress</label>
+                    <input type="email"  formControlName="CustomerAddress" class="form-control" id="exampleInputCustomerAddress" aria-describedby="emailHelp">
+                   </div> 
+                 
+                   <div class="mb-3">
+                    <label for="exampleInputPhoneNumber" class="form-label">CustomerPhone</label>
+                    <input type="text" formControlName="CustomerPhone" class="form-control" id="exampleInputCustomerPhone" aria-describedby="emailHelp">
+                  </div>
+                
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="showAdd" type="button" (click)="postOrderDetails()" class="btn btn-primary">Add <i class="fas fa-plus-square"></i></button>
+          <button *ngIf="showUpdate" type="button" (click)="updateOrderDetails()" class="btn btn-primary">Update <i class="fas fa-plus-square"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>

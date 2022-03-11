@@ -1,0 +1,29 @@
+
+.btn{
+    float:right;
+    margin-right: 2%;
+}
+.btn1{
+    float:right;
+    margin-right: 2%;
+    opacity: 75%;
+}
+.error{
+    color:red;
+}
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+input.ng-valid.ng-dirty{
+    border: 2px solid green;
+}
+.card{
+ width:40%;
+ height: 60%;
+ padding: 5%;
+ left:20%;
+ margin-top:5%;
+ background-color: grey;
+ color: aliceblue;
+
+}

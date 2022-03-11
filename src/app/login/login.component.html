@@ -1,0 +1,40 @@
+
+<div class="card">
+    <h2>Login Form</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="username">UserName</label>
+        <input type="text" formControlName= "username" class="form-control"  [(ngModel)]="name"  />
+        <span class="error" *ngIf= "username?.invalid && username?.touched">username required</span>
+    </div>
+    <br/>
+    <br/>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [(ngModel)]="pwd" name="pwd" />
+        <span class="error" *ngIf= "password?.invalid && password?.touched">username required</span>
+        
+    </div>
+    <br/>
+    <br/>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="rememberMe">
+        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+      </div>
+    <br/>
+
+    <div class="form-group">
+
+    <button class="btn" mat-raised-button color="warn" [disabled]="loginForm.invalid" routerLink="/orders">Login</button>&nbsp;
+
+       <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/register']" class="btn btn-link">Register</a>-->
+    </div>
+
+</form>
+</div>
+<!--<div><p>Username :{{name}}</p>
+    <p>Pwd:{{pwd}}</p>
+
+</div>-->
